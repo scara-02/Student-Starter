@@ -27,28 +27,27 @@ I also added tests to check the capacity boundary, duplicate registrations with 
 
 I reorganized the project into a parent Maven project and a separate application module. This keeps the shared build settings in one place and the application code in its own module.
 
-```text
+
 Student-Starter/
-├── pom.xml
-├── Jenkinsfile
-├── deployment.yaml
-├── service.yaml
-├── README.md
-└── course-registration-app/
-    ├── pom.xml
-    └── src/
-        ├── main/java/com/university/
-        │   ├── Course.java
-        │   ├── RegistrationService.java
-        │   └── Student.java
-        └── test/java/com/university/
-            ├── CourseTest.java
-            └── RegistrationServiceTest.java
-```
+    pom.xml
+    Jenkinsfile
+    deployment.yaml
+    service.yaml
+    README.md
+    course-registration-app/
+        pom.xml
+        src/
+            main/java/com/university/
+                Course.java
+                RegistrationService.java
+                Student.java
+            test/java/com/university/
+                CourseTest.java
+                RegistrationServiceTest.java
 
 ### What the POM files do
 
-**Root `pom.xml`**
+ `pom.xml`
 
 The root POM acts as the parent project. It uses `pom` packaging and lists `course-registration-app` as its module. It also keeps the shared Java and build-tool settings together:
 
@@ -57,7 +56,7 @@ The root POM acts as the parent project. It uses `pom` packaging and lists `cour
 - Maven Compiler Plugin: `3.13.0`
 - Maven Surefire Plugin: `3.5.0`
 
-**`course-registration-app/pom.xml`**
+`course-registration-app/pom.xml`
 
 The child POM inherits the settings from the parent and contains the application module's dependencies. It does not need to specify a JUnit version because that version is managed by the parent POM.
 
